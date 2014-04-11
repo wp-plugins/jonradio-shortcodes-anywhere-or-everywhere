@@ -3,7 +3,7 @@
 Plugin Name: jonradio Shortcodes Anywhere or Everywhere
 Plugin URI: http://jonradio.com/plugins/jonradio-shortcodes-anywhere-or-everywhere
 Description: Allows Shortcodes to be used nearly Everywhere, not just in Posts and Pages.
-Version: 1.0
+Version: 1.1
 Author: jonradio
 Author URI: http://jonradio.com/plugins
 License: GPLv2

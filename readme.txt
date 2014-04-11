@@ -4,7 +4,7 @@ Donate link: http://jonradio.com/plugins
 Tags: shortcode
 Requires at least: 2.5
 Tested up to: 3.9
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,12 +57,15 @@ Please fill out this [Contact Form (click here)](http://jonradio.com/contact-us/
 
 == Changelog ==
 
-= 1.0 =
+= 1.1 =
 * Support Shortcodes in Titles, Widgets, Widget Titles, Site Title/Description, including `<title>`
 * Settings Page to turn each Filter used on and off, and to show Pages and Posts as always on
 * Warning when nothing selected
 
+= 1.0 =
+* Beta Version
+
 == Upgrade Notice ==
 
-= 1.0 =
+= 1.1 =
 * First Production Version

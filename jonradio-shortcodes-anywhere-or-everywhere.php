@@ -3,7 +3,7 @@
 Plugin Name: jonradio Shortcodes Anywhere or Everywhere
 Plugin URI: http://jonradio.com/plugins/jonradio-shortcodes-anywhere-or-everywhere
 Description: Allows Shortcodes to be used nearly Everywhere, not just in Posts and Pages.
-Version: 1.1
+Version: 1.2
 Author: jonradio
 Author URI: http://jonradio.com/plugins
 License: GPLv2
@@ -65,7 +65,10 @@ $jr_saoe_filters =
 			),
 		array(
 			'filter'      => 'widget_text',
-			'functions'   => array( 'shortcode_unautop', 'do_shortcode' ),
+			'functions'   => array(
+								'shortcode_unautop' => 1,
+								'do_shortcode'      => 1
+								),
 			'where'       => 'In Widgets',
 			'description' => 'includes most Widgets, Sidebars and Footers'
 			),
@@ -78,6 +81,14 @@ $jr_saoe_filters =
 			'filter'      => 'bloginfo',
 			'where'       => 'In Site Title/Description',
 			'description' => 'all bloginfo options except "url", "directory" and "home"'
+			),
+		array(
+			'filter'      => 'get_post_metadata',
+			'functions'   => array(
+								'jr_saoe_get_post_metadata' => 4
+								),
+			'where'       => 'In Post/Page Custom Fields',
+			'description' => 'allows shortcodes in the Value, but not the Name, of a Custom Field'
 			)
 		);
 

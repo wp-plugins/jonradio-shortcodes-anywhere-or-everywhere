@@ -4,7 +4,7 @@ Donate link: http://jonradio.com/plugins
 Tags: shortcode
 Requires at least: 2.5
 Tested up to: 3.9
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Allows Shortcodes to be used nearly Everywhere, not just in Posts and Pages.
 
 == Description ==
 
-Shortcodes can be added to Page Titles, Post Titles, Widgets, Widget Titles, Site Title and Description, not just Pages and Posts as is already provided by WordPress itself.  This allows Shortcodes to be used in Sidebars, Menus, Headers, Footers and even the HTML `<title>` element that appears in the Title Bar of most browsers.
+Shortcodes can be added to Page Titles, Post Titles, Widgets, Widget Titles, Custom Fields, Site Title and Description, not just Pages and Posts as is already provided by WordPress itself.  This allows Shortcodes to be used in Sidebars, Menus, Headers, Footers and even the HTML `<title>` element that appears in the Title Bar of most browsers.
 
 A Settings page includes checkboxes to select where Shortcodes might appear:
 
@@ -21,6 +21,7 @@ A Settings page includes checkboxes to select where Shortcodes might appear:
 * In Widgets used in Sidebars, Menus, Headers, Footers, etc.
 * In Widget Titles
 * In Site Title, Description and other bloginfo options
+* In Page or Post Custom Fields
 
 A default Warning feature, which can be disabled on the Settings page, displays a message at the top of every Admin panel if the plugin is Activated but doing nothing because no Where? checkboxes are selected (other than the mandatory In Pages and In Posts settings).
 
@@ -34,7 +35,7 @@ All Shortcodes are supported by this plugin, no matter whether you are using Sho
 
 Future versions will include more areas of the WordPress web site where Shortcodes may be used, based on the needs of users of this Plugin.
 
-No attempt has been made to allow Shortcodes to be used to display values in Admin panels.  This is the default WordPress behaviour, and changing it may have unintended consequences.
+No attempt has been made to allow Shortcodes to be used to display values in Admin panels.  This is the default WordPress behaviour, and changing it may have unintended (negative) consequences.
 
 Plugin Developers may find the Table-Driven Design of interest.  This was a popular concept in the 1980s and was used in this plugin to simplify the use of WordPress Filters.  The two-dimensional global array $jr_saoe_filters is the Table involved.
 
@@ -57,6 +58,9 @@ Please fill out this [Contact Form (click here)](http://jonradio.com/contact-us/
 
 == Changelog ==
 
+= 1.2 =
+* Support Shortcodes in Custom Fields: Page and Posts only, using `get_post_metadata` filter
+
 = 1.1 =
 * Support Shortcodes in Titles, Widgets, Widget Titles, Site Title/Description, including `<title>`
 * Settings Page to turn each Filter used on and off, and to show Pages and Posts as always on
@@ -67,5 +71,8 @@ Please fill out this [Contact Form (click here)](http://jonradio.com/contact-us/
 
 == Upgrade Notice ==
 
+= 1.2 =
+Shortcodes in Custom Fields (Pages and Posts)
+
 = 1.1 =
-* First Production Version
+First Production Version

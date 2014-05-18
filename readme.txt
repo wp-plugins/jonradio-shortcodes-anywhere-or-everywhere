@@ -4,7 +4,7 @@ Donate link: http://jonradio.com/plugins
 Tags: shortcode, custom
 Requires at least: 3.1
 Tested up to: 3.9
-Stable tag: 1.3
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,6 +59,9 @@ Please fill out this [Contact Form (click here)](http://jonradio.com/contact-us/
 
 == Changelog ==
 
+= 1.3.1 =
+* Add Recommendations to Settings page for multiple Settings for "same thing", i.e. - Titles and Post Excerpts 
+
 = 1.3 =
 * Support Shortcodes in Post Excerpts, both those manually and automatically created
 
@@ -74,6 +77,9 @@ Please fill out this [Contact Form (click here)](http://jonradio.com/contact-us/
 * Beta Version
 
 == Upgrade Notice ==
+
+= 1.3.1 =
+Explain (on Settings page) multiple Settings for Titles and Post Excerpts
 
 = 1.3 =
 Shortcodes in Post Excerpts (manual and automatically created)

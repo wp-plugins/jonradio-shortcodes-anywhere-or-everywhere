@@ -160,6 +160,24 @@ function jr_saoe_where_expl() {
 	Shortcodes are displayed by name ("[y]"), not by their value ("2014"), in the Admin panels.
 	This is standard WordPress behaviour.
 	</p>
+	<p>
+	Recommendations
+	(deciding which Settings to choose when more than one is listed below for the same "Where?" place):
+	<ol>
+	<li>
+	Post Excerpts -
+	choose both,
+	just in case both Manual and Automatic Post Excerpts are being used in the future on your site 
+	</li>
+	<li>
+	Titles - 
+	choose two -
+	the first one and the "recommended method";
+	if that does not work, deselect the "recommended method" and select the "alternate method";
+	the first Title entry should always be selected if you use Shortcodes in Page or Post Titles
+	</li>
+	</ol>
+	</p>
 	<?php	
 }
 

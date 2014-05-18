@@ -27,6 +27,26 @@ foreach ( $jr_saoe_filters as $one_filter ) {
 	for Filters where the do_shortcode() function cannot be used directly.
 */
 
+/*	Written to do_shortcode() at wp_trim_excerpt Filter.
+	Code adapted from WordPress 3.9.1 wp_trim_excerpt() source code.
+*/
+function jr_saoe_wp_trim_excerpt( $text, $raw_excerpt ) {
+	if ( '' == $raw_excerpt ) {
+		$text = get_the_content( '' );
+		/*	Rather than strip_shortcodes():
+		*/
+		$text = do_shortcode( $text );
+		$text = apply_filters( 'the_content', $text );
+		$text = str_replace(']]>', ']]&gt;', $text);
+		$excerpt_length = apply_filters( 'excerpt_length', 55 );
+		$excerpt_more = apply_filters( 'excerpt_more', ' ' . '[&hellip;]' );
+		$text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+	} else {
+		$text = do_shortcode( $raw_excerpt );
+	}
+	return $text;
+}
+
 /*	Written to do_shortcode() at get_post_metadata Filter.
 	Code adapted from WordPress 3.9 get_metadata() source code.
 */

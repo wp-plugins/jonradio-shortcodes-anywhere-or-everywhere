@@ -1,10 +1,10 @@
 === jonradio Shortcodes Anywhere or Everywhere ===
 Contributors: jonradio
 Donate link: http://jonradio.com/plugins
-Tags: shortcode
-Requires at least: 2.5
+Tags: shortcode, custom
+Requires at least: 3.1
 Tested up to: 3.9
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,10 +12,11 @@ Allows Shortcodes to be used nearly Everywhere, not just in Posts and Pages.
 
 == Description ==
 
-Shortcodes can be added to Page Titles, Post Titles, Widgets, Widget Titles, Custom Fields, Site Title and Description, not just Pages and Posts as is already provided by WordPress itself.  This allows Shortcodes to be used in Sidebars, Menus, Headers, Footers and even the HTML `<title>` element that appears in the Title Bar of most browsers.
+Shortcodes can be added to Post Excerpts, Page Titles, Post Titles, Widgets, Widget Titles, Custom Fields, Site Title and Description, not just Pages and Posts as is already provided by WordPress itself.  This allows Shortcodes to be used in Sidebars, Menus, Headers, Footers and even the HTML `<title>` element that appears in the Title Bar of most browsers.
 
 A Settings page includes checkboxes to select where Shortcodes might appear:
 
+* In Post Excerpts, both manual and automatically-created Excerpts
 * In Page and Post Titles
 * In Browser Title Bar via `<title>`
 * In Widgets used in Sidebars, Menus, Headers, Footers, etc.
@@ -58,6 +59,9 @@ Please fill out this [Contact Form (click here)](http://jonradio.com/contact-us/
 
 == Changelog ==
 
+= 1.3 =
+* Support Shortcodes in Post Excerpts, both those manually and automatically created
+
 = 1.2 =
 * Support Shortcodes in Custom Fields: Page and Posts only, using `get_post_metadata` filter
 
@@ -70,6 +74,9 @@ Please fill out this [Contact Form (click here)](http://jonradio.com/contact-us/
 * Beta Version
 
 == Upgrade Notice ==
+
+= 1.3 =
+Shortcodes in Post Excerpts (manual and automatically created)
 
 = 1.2 =
 Shortcodes in Custom Fields (Pages and Posts)

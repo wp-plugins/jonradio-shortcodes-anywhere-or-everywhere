@@ -3,7 +3,7 @@
 Plugin Name: jonradio Shortcodes Anywhere or Everywhere
 Plugin URI: http://jonradio.com/plugins/jonradio-shortcodes-anywhere-or-everywhere
 Description: Allows Shortcodes to be used nearly Everywhere, not just in Posts and Pages.
-Version: 1.2
+Version: 1.3
 Author: jonradio
 Author URI: http://jonradio.com/plugins
 License: GPLv2
@@ -44,6 +44,19 @@ $jr_saoe_filters =
 			'disabled'    => 'posts',
 			'where'       => 'In Posts',
 			'description' => '(standard WordPress behaviour)'
+			),
+		array(
+			'filter'      => 'wp_trim_excerpt',
+			'functions'   => array(
+								'jr_saoe_wp_trim_excerpt' => 2
+								),
+			'where'       => 'In Post Excerpts (automatic)',
+			'description' => 'where Excerpts are automatically generated because Manual Excerpts do not exist'
+			),
+		array(
+			'filter'      => 'get_the_excerpt',
+			'where'       => 'In Post Excerpts (manual)',
+			'description' => 'where Excerpts were typed into the (optional) Excerpt textbox of Add/Edit Post'
 			),
 		array(
 			'filter'      => 'the_title',

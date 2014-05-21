@@ -3,7 +3,7 @@
 Plugin Name: jonradio Shortcodes Anywhere or Everywhere
 Plugin URI: http://jonradio.com/plugins/jonradio-shortcodes-anywhere-or-everywhere
 Description: Allows Shortcodes to be used nearly Everywhere, not just in Posts and Pages.
-Version: 1.3.1
+Version: 1.4
 Author: jonradio
 Author URI: http://jonradio.com/plugins
 License: GPLv2
@@ -113,6 +113,7 @@ $jr_saoe_settings_default =
 foreach ( $jr_saoe_filters as $one_filter ) {
 	if ( isset( $one_filter['filter'] ) ) {
 		$jr_saoe_settings_default[ $one_filter['filter'] ] = FALSE;
+		$jr_saoe_settings_default['priority'][ $one_filter['filter'] ] = 10;
 	}
 }
 		

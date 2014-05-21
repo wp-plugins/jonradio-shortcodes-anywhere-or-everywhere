@@ -13,10 +13,19 @@ foreach ( $jr_saoe_filters as $one_filter ) {
 		if ( $settings[ $one_filter['filter'] ] ) {
 			if ( isset( $one_filter['functions'] ) ) {
 				foreach ( $one_filter['functions'] as $function => $parameters ) {
-					add_filter( $one_filter['filter'], $function, 10, $parameters );
+					add_filter( 
+						$one_filter['filter'], 
+						$function, 
+						$settings['priority'][ $one_filter['filter'] ], 
+						$parameters
+					);
 				}
 			} else {
-				add_filter( $one_filter['filter'], 'do_shortcode' );
+				add_filter( 
+					$one_filter['filter'], 
+					'do_shortcode', 
+					$settings['priority'][ $one_filter['filter'] ] 
+				);
 			}
 		}
 	}
@@ -28,7 +37,8 @@ foreach ( $jr_saoe_filters as $one_filter ) {
 */
 
 /*	Written to do_shortcode() at wp_trim_excerpt Filter.
-	Code adapted from WordPress 3.9.1 wp_trim_excerpt() source code.
+	Code adapted from WordPress 3.9.1 Function wp_trim_excerpt() source code
+	in wp-includes/formatting.php.
 */
 function jr_saoe_wp_trim_excerpt( $text, $raw_excerpt ) {
 	if ( '' == $raw_excerpt ) {

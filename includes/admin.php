@@ -92,37 +92,50 @@ add_action( 'admin_init', 'jr_saoe_admin_init' );
  */
 function jr_saoe_admin_init() {
 	register_setting( 'jr_saoe_settings', 'jr_saoe_settings', 'jr_saoe_validate_settings' );
-	add_settings_section( 'jr_saoe_overview_section', 
+	add_settings_section( 
+		'jr_saoe_overview_section', 
 		'Overview', 
 		'jr_saoe_overview_expl', 
 		'jr_saoe_settings_page' 
 	);
-	add_settings_section( 'jr_saoe_where_section', 
+	add_settings_section( 
+		'jr_saoe_where_section', 
 		'Where?', 
 		'jr_saoe_where_expl', 
 		'jr_saoe_settings_page' 
 	);
 	global $jr_saoe_filters;
+	$first_where = 'Where?</th><td><b>Priority</b>|<b>Select</b></td></tr><tr><th scope="row">';
 	foreach ( $jr_saoe_filters as $one_filter ) {
 		if ( isset( $one_filter['disabled'] ) ) {
 			$field = $one_filter['disabled'];
 		} else {
 			$field = $one_filter['filter'];
 		}
-		add_settings_field( $field, 
-			$one_filter['where'], 
+		add_settings_field( 
+			$field, 
+			$first_where . $one_filter['where'], 
 			'jr_saoe_echo_where', 
 			'jr_saoe_settings_page', 
 			'jr_saoe_where_section',
 			$one_filter
 		);
+		$first_where = '';
 	}
-	add_settings_section( 'jr_saoe_warnings_section', 
+	add_settings_section( 
+		'jr_saoe_priority_section', 
+		'Priority', 
+		'jr_saoe_priority_expl', 
+		'jr_saoe_settings_page' 
+	);
+	add_settings_section( 
+		'jr_saoe_warnings_section', 
 		'Warnings', 
 		'jr_saoe_warnings_expl', 
 		'jr_saoe_settings_page' 
 	);
-	add_settings_field( 'warn_nothing', 
+	add_settings_field( 
+		'warn_nothing', 
 		'Warn if Disabled', 
 		'jr_saoe_echo_warn_nothing', 
 		'jr_saoe_settings_page', 
@@ -156,21 +169,32 @@ function jr_saoe_where_expl() {
 	Decide where you want to use Shortcodes by checking the boxes below.
 	</p>
 	<p>
-	Note -
+	<b>
+	Note
+	</b>
+	-
 	Shortcodes are displayed by name ("[y]"), not by their value ("2014"), in the Admin panels.
 	This is standard WordPress behaviour.
 	</p>
 	<p>
+	<b>
 	Recommendations
+	</b>
 	(deciding which Settings to choose when more than one is listed below for the same "Where?" place):
 	<ol>
 	<li>
-	Post Excerpts -
+	<b>
+	Post Excerpts
+	</b>
+	-
 	choose both,
 	just in case both Manual and Automatic Post Excerpts are being used in the future on your site 
 	</li>
 	<li>
-	Titles - 
+	<b>
+	Titles
+	</b>
+	- 
 	choose two -
 	the first one and the "recommended method";
 	if that does not work, deselect the "recommended method" and select the "alternate method";
@@ -178,12 +202,24 @@ function jr_saoe_where_expl() {
 	</li>
 	</ol>
 	</p>
+	<p>
+	<b>
+	Priority 
+	</b>
+	-
+	an Advanced Setting described in the next Section.
+	</p>
 	<?php	
 }
 
 function jr_saoe_echo_where( $one_filter ) {
 	if ( isset( $one_filter['disabled'] ) ) {
-		echo '<input type="checkbox" id="' 
+		echo '<input type="text" size="2" maxlength="2" id="'
+			. $one_filter['disabled']
+			. '" name="jr_saoe_settings[priority]['
+			. $one_filter['disabled']
+			. ']" value="10" disabled="disabled" /> '
+			. '<input type="checkbox" id="' 
 			. $one_filter['disabled']
 			. '" name="jr_saoe_settings['
 			. $one_filter['disabled']
@@ -191,7 +227,14 @@ function jr_saoe_echo_where( $one_filter ) {
 			. $one_filter['description'];
 	} else {
 		$settings = get_option( 'jr_saoe_settings' );
-		echo '<input type="checkbox" id="'
+		echo '<input type="text" size="2" maxlength="2" id="'
+			. $one_filter['filter']
+			. '" name="jr_saoe_settings[priority]['
+			. $one_filter['filter']
+			. ']" value="'
+			. $settings['priority'][ $one_filter['filter'] ]
+			. '" /> '
+			. '<input type="checkbox" id="'
 			. $one_filter['filter']
 			. '" name="jr_saoe_settings['
 			. $one_filter['filter']
@@ -202,6 +245,55 @@ function jr_saoe_echo_where( $one_filter ) {
 			. $one_filter['filter']
 			. '" filter)</small>';
 	}
+}
+
+function jr_saoe_priority_expl() {
+	global $jr_saoe_plugin_data;
+	?>
+	<p>
+	Priority,
+	specified in the "Where?" section just above,
+	is an Advanced Setting that should normally be left at its default setting of 10.
+	It is only useful if another plugin or theme is using one of the WordPress Filters
+	selected above
+	(Filter names are shown in parentheses at the end of each Description in the "Where?" section above)
+	and when there appears to be a conflict between the plugin or theme, and this 
+	<?php
+	echo $jr_saoe_plugin_data['Name'];
+	?>
+	plugin.
+	</p>
+	<p>
+	Priority can have an integer value from 1 to 99, with 10 the default value:
+	<ol>
+	<li>
+	A Priority of 1 will substitute all Shortcodes before other Filter actions occur at the normal Priority of 10.
+	</li>
+	<li>
+	A Priority of 99 will substitute all Shortcodes after other Filter actions occur at the normal Priority of 10.
+	</li>
+	</ol>
+	</p>
+	<p>
+	Priority is worth experimenting with if this
+	<?php
+	echo $jr_saoe_plugin_data['Name'];
+	?>
+	plugin
+	is doing anything more than its intended purpose:
+	enabling Shortcodes in the places specified.
+	For example, if the appearance of any part of the WordPress site changes when this
+	<?php
+	echo $jr_saoe_plugin_data['Name'];
+	?>
+	plugin
+	is activated and one or more of the Where? settings selected,
+	and goes back to normal when this plugin is deactivated.
+	</p>
+	<p>
+	Priority has no effect when its Where? setting is <b>not</b> selected.
+	</p>
+	<?php
 }
 
 function jr_saoe_warnings_expl() {
@@ -232,6 +324,29 @@ function jr_saoe_validate_settings( $input ) {
 			} else {
 				$valid[ $one_filter['filter'] ] = FALSE;
 			}
+			$priority_input = trim( $input['priority'][ $one_filter['filter'] ] );
+			if ( '' === $priority_input ) {
+				$priority = 10;
+			} else {
+				if ( is_numeric( $priority_input ) ) {
+					$priority = (int) $priority_input;
+					if ( $priority == $priority_input ) {
+						if ( $priority < 1 ) {
+							$priority = 10;
+							if ( $priority < 0 ) {
+								// negative integer error
+							}
+						}
+					} else {
+						$priority = 10;
+						// floating point error message
+					}
+				} else {
+					$priority = 10;
+					// non-numeric error message
+				}
+			}
+			$valid['priority'][ $one_filter['filter'] ] = $priority;
 		}
 	}
 	return $valid;

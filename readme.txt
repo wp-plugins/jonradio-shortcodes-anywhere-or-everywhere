@@ -4,7 +4,7 @@ Donate link: http://jonradio.com/plugins
 Tags: shortcode, custom
 Requires at least: 3.1
 Tested up to: 3.9
-Stable tag: 1.3.1
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,11 +24,14 @@ A Settings page includes checkboxes to select where Shortcodes might appear:
 * In Site Title, Description and other bloginfo options
 * In Page or Post Custom Fields
 
+Priority is an Advanced Setting beside each checkbox that controls the timing of the WordPress Filter associated with each Where? setting.  This is provided solely to address conflicts with other themes and plugins that use the same WordPress Filter ("hook"). 
+
 A default Warning feature, which can be disabled on the Settings page, displays a message at the top of every Admin panel if the plugin is Activated but doing nothing because no Where? checkboxes are selected (other than the mandatory In Pages and In Posts settings).
 
 All Shortcodes are supported by this plugin, no matter whether you are using Shortcodes defined by:
 
 * WordPress itself, such as `[gallery]`, `[audio]`, `[caption]`, `[embed]` or `[video]`
+* Jetpack Shortcode Embeds
 * Your Active Theme
 * Another Plugin, for example, jonradio Current Year and Copyright Shortcodes
 * Writing your own Plugin and using the `add_shortcode()` function
@@ -59,6 +62,9 @@ Please fill out this [Contact Form (click here)](http://jonradio.com/contact-us/
 
 == Changelog ==
 
+= 1.4 =
+* Add a Priority setting for each Filter in the Where? section
+
 = 1.3.1 =
 * Add Recommendations to Settings page for multiple Settings for "same thing", i.e. - Titles and Post Excerpts 
 
@@ -77,6 +83,9 @@ Please fill out this [Contact Form (click here)](http://jonradio.com/contact-us/
 * Beta Version
 
 == Upgrade Notice ==
+
+= 1.4 =
+Control Priority setting for each WordPress Filter enabled
 
 = 1.3.1 =
 Explain (on Settings page) multiple Settings for Titles and Post Excerpts

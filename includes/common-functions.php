@@ -79,6 +79,15 @@ if ( !function_exists( 'jr_v1_validate_settings' ) ) {
 				if ( !isset( $settings[$key] ) ) {
 					$settings[$key] = $value;
 					$updated = TRUE;
+				} else {
+					if ( is_array( $value ) ) {
+						foreach ( $value as $key2 => $value2 ) {
+							if ( !isset( $settings[$key][$key2] ) ) {
+								$settings[$key][$key2] = $value;
+								$updated = TRUE;
+							}
+						}
+					}
 				}
 			}
 			/*	Remove any Settings not found in Defaults provided.
@@ -87,6 +96,15 @@ if ( !function_exists( 'jr_v1_validate_settings' ) ) {
 				if ( !isset( $defaults[$key] ) ) {
 					unset( $settings[$key] );
 					$updated = TRUE;
+				} else {
+					if ( is_array( $value ) ) {
+						foreach ( $value as $key2 => $value2 ) {
+							if ( !isset( $defaults[$key][$key2] ) ) {
+								$defaults[$key][$key2] = $value;
+								$updated = TRUE;
+							}
+						}
+					}
 				}
 			}
 		}

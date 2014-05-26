@@ -33,10 +33,6 @@ function jr_saoe_settings_page() {
 	add_thickbox();
 	echo '<div class="wrap">';
 	echo '<h2>' . $jr_saoe_plugin_data['Name'] . '</h2>';
-	
-	//	Required because it is only called automatically for Admin Pages in the Settings section
-	settings_errors( 'jr_saoe_settings' );
-
 	echo '<form action="options.php" method="POST">';
 	
 	//	Plugin Settings are displayed and entered here:
@@ -314,12 +310,16 @@ function jr_saoe_echo_warn_nothing() {
 
 function jr_saoe_validate_settings( $input ) {
 	$valid = array();
+	if ( isset( $input['warn_nothing'] ) && ( 'true' === $input['warn_nothing'] ) ) {
+		$valid['warn_nothing'] = TRUE;
+	} else {
+		$valid['warn_nothing'] = FALSE;
+	}
+	
 	global $jr_saoe_filters;
-	$checkboxes = $jr_saoe_filters;
-	$checkboxes[] = array( 'filter' => 'warn_nothing' );
-	foreach ( $checkboxes as $one_filter ) {
+	foreach ( $jr_saoe_filters as $one_filter ) {
 		if ( !isset( $one_filter['disabled'] ) ) {
-			if ( isset( $input[ $one_filter['filter'] ] ) && ( $input[ $one_filter['filter'] ] === 'true' ) ) {
+			if ( isset( $input[ $one_filter['filter'] ] ) && ( 'true' === $input[ $one_filter['filter'] ] ) ) {
 				$valid[ $one_filter['filter'] ] = TRUE;
 			} else {
 				$valid[ $one_filter['filter'] ] = FALSE;
@@ -334,16 +334,54 @@ function jr_saoe_validate_settings( $input ) {
 						if ( $priority < 1 ) {
 							$priority = 10;
 							if ( $priority < 0 ) {
-								// negative integer error
+								/*	negative integer error message
+								*/
+								add_settings_error(
+									'jr_saoe_settings',
+									'jr_saoe_priorityerror1',
+									'Error in Priority Value: "'
+										. $priority_input
+										. '". Must be a positive integer from 1 to 99. Negative value entered.',
+									'error'
+								);
+							} else {
+								/*	zero integer error message
+								*/
+								add_settings_error(
+									'jr_saoe_settings',
+									'jr_saoe_priorityerror1',
+									'Error in Priority Value: "'
+										. $priority_input
+										. '". Must be a positive integer from 1 to 99. Zero value entered.',
+									'error'
+								);
 							}
 						}
 					} else {
 						$priority = 10;
-						// floating point error message
+						/*	floating point error message
+						*/
+						add_settings_error(
+							'jr_saoe_settings',
+							'jr_saoe_priorityerror2',
+							'Error in Priority Value: "'
+								. $priority_input
+								. '". Must be a positive integer from 1 to 99. Value with decimal point entered.',
+							'error'
+						);
 					}
 				} else {
 					$priority = 10;
-					// non-numeric error message
+					/*	non-numeric error message
+					*/
+					add_settings_error(
+						'jr_saoe_settings',
+						'jr_saoe_priorityerror3',
+						'Error in Priority Value: "'
+							. $priority_input
+							. '". Must be a positive integer from 1 to 99. Non-numeric value entered.',
+						'error'
+					);
 				}
 			}
 			$valid['priority'][ $one_filter['filter'] ] = $priority;

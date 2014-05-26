@@ -4,7 +4,7 @@ Donate link: http://jonradio.com/plugins
 Tags: shortcode, custom
 Requires at least: 3.1
 Tested up to: 3.9
-Stable tag: 1.4
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,9 @@ Please fill out this [Contact Form (click here)](http://jonradio.com/contact-us/
 
 == Changelog ==
 
+= 1.4.1 =
+* Error messages added for invalid Priority values on Settings page
+
 = 1.4 =
 * Add a Priority setting for each Filter in the Where? section
 
@@ -83,6 +86,9 @@ Please fill out this [Contact Form (click here)](http://jonradio.com/contact-us/
 * Beta Version
 
 == Upgrade Notice ==
+
+= 1.4.1 =
+Error Messages for Priority Settings
 
 = 1.4 =
 Control Priority setting for each WordPress Filter enabled

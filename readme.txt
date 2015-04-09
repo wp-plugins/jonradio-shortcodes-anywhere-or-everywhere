@@ -1,7 +1,7 @@
 === jonradio Shortcodes Anywhere or Everywhere ===
 Contributors: jonradio
 Donate link: http://jonradio.com/plugins
-Tags: shortcode, custom
+Tags: adopt-me, shortcode, custom
 Requires at least: 3.1
 Tested up to: 4.1
 Stable tag: 1.5

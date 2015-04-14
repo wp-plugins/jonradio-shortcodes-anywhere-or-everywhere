@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name: jonradio Shortcodes Anywhere or Everywhere
-Plugin URI: http://jonradio.com/plugins/jonradio-shortcodes-anywhere-or-everywhere
+Plugin URI: http://zatzlabs.com/plugins/
 Description: Allows Shortcodes to be used nearly Everywhere, not just in Posts and Pages.
 Version: 1.2
-Author: jonradio
-Author URI: http://jonradio.com/plugins
+Author: David Gewirtz
+Author URI: http://zatzlabs.com/plugins/
 License: GPLv2
 */
 
-/*  Copyright 2014  jonradio  (email : info@jonradio.com)
+/*  Copyright 2014  jonradio  (email : info@zatz.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

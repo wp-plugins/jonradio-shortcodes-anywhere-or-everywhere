@@ -1,6 +1,6 @@
 === jonradio Shortcodes Anywhere or Everywhere ===
 Contributors: dgewirtz, jonradio
-Donate link: http://jonradio.com/plugins
+Donate link: http://zatzlabs.com/plugins/
 Tags: shortcode, custom
 Requires at least: 3.1
 Tested up to: 4.1
@@ -58,7 +58,7 @@ This section describes how to install the *jonradio Shortcodes Anywhere or Every
 
 = Where should Feature Requests be sent? =
 
-Please fill out this [Contact Form (click here)](http://jonradio.com/contact-us/ "Contact Form").
+Please fill out this [Contact Form (click here)](http://zatzlabs.com/contact-us/ "Contact Form").
 
 == Changelog ==
 

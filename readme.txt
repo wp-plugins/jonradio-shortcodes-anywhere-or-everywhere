@@ -1,5 +1,5 @@
 === jonradio Shortcodes Anywhere or Everywhere ===
-Contributors: jonradio
+Contributors: dgewirtz
 Donate link: http://zatzlabs.com/plugins/
 Tags: shortcode, custom
 Requires at least: 3.1

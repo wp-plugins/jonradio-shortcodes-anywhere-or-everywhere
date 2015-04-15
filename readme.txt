@@ -33,7 +33,7 @@ All Shortcodes are supported by this plugin, no matter whether you are using Sho
 * WordPress itself, such as `[gallery]`, `[audio]`, `[caption]`, `[embed]` or `[video]`
 * Jetpack Shortcode Embeds
 * Your Active Theme
-* Another Plugin, for example, jonradio Current Year and Copyright Shortcodes
+* Another Plugin, for example, Current Year and Copyright Shortcodes
 * Writing your own Plugin and using the `add_shortcode()` function
 * Using a Shortcode creation Plugin, for example, Shortcode Exec PHP
 
@@ -43,7 +43,7 @@ No attempt has been made to allow Shortcodes to be used to display values in Adm
 
 Plugin Developers may find the Table-Driven Design of interest.  This was a popular concept in the 1980s and was used in this plugin to simplify the use of WordPress Filters.  The two-dimensional global array $jr_saoe_filters is the Table involved.
 
-This plugin was created to satisfy a request from a user of the [jonradio Current Year and Copyright Shortcodes plugin](http://wordpress.org/plugins/jonradio-current-year-and-copyright-shortcodes/ "jonradio Current Year and Copyright Shortcodes") to use these Shortcodes in a Page Title.
+This plugin was created to satisfy a request from a user of the [Current Year and Copyright Shortcodes plugin](http://wordpress.org/plugins/jonradio-current-year-and-copyright-shortcodes/ "jonradio Current Year and Copyright Shortcodes") to use these Shortcodes in a Page Title.
 
 > <strong>Adoption Notice</strong><br>
 > This plugin was recently adopted by David Gewirtz and ongoing support and updates will continue. Feel free to visit [David's Lab Notes](http://zatzlabs.com/lab-notes/) for additional details and to sign up for emailed news updates.

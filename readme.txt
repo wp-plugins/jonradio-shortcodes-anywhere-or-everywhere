@@ -12,7 +12,7 @@ Allows Shortcodes to be used nearly everywhere, not just in posts and pages.
 
 == Description ==
 
-**Formerly "jonradio Shortcodes Anywhere or Everywhere"**
+*Formerly "jonradio Shortcodes Anywhere or Everywhere"*
 
 Shortcodes can be added to Post Excerpts, Page Titles, Post Titles, Widgets, Widget Titles, Custom Fields, Site Title and Description, not just Pages and Posts as is already provided by WordPress itself.  This allows Shortcodes to be used in Sidebars, Menus, Headers, Footers and even the HTML `<title>` element that appears in the Title Bar of most browsers.
 
